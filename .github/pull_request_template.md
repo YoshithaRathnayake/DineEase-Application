@@ -13,4 +13,4 @@ The purpose of this PR is to fix #<issue-number>
 <!---  Once you submit the PR, replace "{PR_NUMBER}" with your PR number. -->
 <!---  ex: https://pr-1366-sef-site.surge.sh -->
 <!---  Feel free to modify the link with the exact path -->
-https://pr-{PR_NUMBER}-sef-site.surge.sh/
+https://pr-{PR_NUMBER}-dine-ease.surge.sh/
