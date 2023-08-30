@@ -18,3 +18,7 @@
         background-size: 200px;
     }
 }
+
+a {
+    text-decoration: none;
+}
