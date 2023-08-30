@@ -75,31 +75,34 @@
 
   <div id="content" style="display: none;">
 
+    <!-- Back to Top Button goes here -->
+    <div id="backToTop"></div>
+
     <!-- header starts here -->
-    <header>
+    <header class="nav-bar">
 
         <div class="image">
-            <a href="#" class="logo"><img src="assets/img/logo.png"></i>DineEase</i></a>
+            <a href="/" class="logo"><img src="assets/img/logo.png"><span class="logo-text">DineEase</span></a>
         </div>
 
         <nav class="navbar">
-            <a href="#home">home</a>
+            <a href="#home" id="home-btn">home</a>
             <a href="#about">about</a>
             <a href="#review">review</a>
             <a href="#contact">contact us</a>
         </nav>
 
         <div class="icons">
-            <i class="fas fa-bars" id="menu-bars"></i>
-            <i class="fas fa-qrcode" id="qrcode"></i>
+            <a href="qr.html" class="fas fa-qrcode" id="qrcode"></a>
             <a href="#" class="fas fa-plate-wheat"></a>
             <a href="#" class="fas fa-user"></a>
+            <i class="fas fa-bars" id="menu-bars"></i>
         </div>
     </header>
     <!-- header ends here  -->
     
     <!-- home section starts-->
-    <section class="home" id="home">
+    <section class="home mb-5 pb-5" id="home">
 
       <div class="swiper home-slider">
 
@@ -151,15 +154,15 @@
     <!-- home section starts-->
 
     <!-- about us section starts-->
-    <section class="about" id="about">
+    <section class="about mt-5 pt-5 pb-5" id="about">
 
-      <h3 class="sub-heading"> who are we?</h3>
+      <h3 class="sub-heading mt-5"> who are we?</h3>
       <h1 class="heading"> about us </h1>
 
       <div class="row">
 
         <div class="image">
-          <img src="assets/img/aboutus.png" alt="About Image">
+          <img src="assets/img/aboutus.png" style="border-radius: 20px;" alt="About Image">
         </div>
 
         <div class="content">
@@ -178,7 +181,7 @@
     <!-- review section starts -->
     <section class="review" id="review">
 
-      <h3 class="sub-heading"> customers' reviews </h3>
+      <h3 class="sub-heading mt-5"> customers' reviews </h3>
       <h1 class="heading"> what they say </h1>
 
     </section>
@@ -187,7 +190,7 @@
     <!-- contact us section starts-->
     <section class="contact" id="contact">
 
-      <h3 class="sub-heading"> want to know more? </h3>
+      <h3 class="sub-heading mt-5"> want to know more? </h3>
       <h1 class="heading"> contact us </h1>
 
       <form action="">
