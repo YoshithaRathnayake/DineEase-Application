@@ -155,7 +155,6 @@ body {
     text-decoration: none;
     outline: none;
     border: none;
-    text-transform: capitalize;
     transition: all .2s linear;
 }
 
@@ -169,7 +168,7 @@ section {
     padding: 2rem 9%;
 }
 
-section:nth-child(even) {
+section:nth-child(even){
     background: #eee;
 }
 
