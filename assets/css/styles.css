@@ -252,7 +252,7 @@ header .navbar a {
 header .navbar a.active,
 header .navbar a:hover {
     letter-spacing: 3px;
-    color: rgb(167, 167, 167);
+    color: var(--green);
 }
 
 header .icons i,
@@ -295,7 +295,7 @@ header .icons #menu-bars {
 .affix .navbar a:hover {
     background-color: rgb(222, 222, 222);
     letter-spacing: 0px;
-    color: black;
+    color: var(--green);
     padding: 13px 18px;
 }
 
