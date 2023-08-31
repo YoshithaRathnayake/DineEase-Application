@@ -641,6 +641,7 @@ iframe {
 
     html {
         font-size: 50%;
+        scroll-padding-top: 7rem;
     }
 
 }
