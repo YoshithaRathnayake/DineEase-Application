@@ -694,7 +694,7 @@ iframe {
 
 #backToTop {
     display: inline-block;
-    background-color: #a3a3a357;
+    background-color: #a3a3a37b;
     backdrop-filter: blur(5px);
     width: 40px;
     height: 40px;
@@ -725,7 +725,7 @@ iframe {
 
 #backToTop:hover {
     cursor: pointer;
-    background-color: #c2c2c257;
+    background-color: #c2c2c28e;
 }
 
 #backToTop:active {
