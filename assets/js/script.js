@@ -1,3 +1,8 @@
+//Load footer
+$(function () {
+    $("#footer").load("assets/content/static/footer.html");
+});
+
 let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 
