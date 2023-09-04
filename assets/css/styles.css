@@ -160,7 +160,6 @@ body {
 
 html {
     font-size: 62.5%;
-    overflow-x: hidden;
     scroll-padding-top: 5.5rem;
 }
 
@@ -171,6 +170,66 @@ section {
 section:nth-child(even){
     background: #eee;
 }
+
+
+.affix .home-color {
+    color: var(--green);
+}
+.affix .home-color:hover {
+    color: #b6771e;
+}
+.affix .home-color2 {
+    color: var(--light-color);
+}
+.affix .home-color2:hover {
+    color: black;
+}
+
+
+.affix .about-color {
+    color: var(--green);
+}
+.affix .about-color:hover {
+    color: #b6771e;
+}
+.affix .about-color2 {
+    color: var(--light-color);
+}
+.affix .about-color2:hover {
+    color: black;
+}
+
+
+
+.affix .review-color {
+    color: var(--green);
+}
+.affix .review-color:hover {
+    color: #b6771e;
+}
+.affix .review-color2 {
+    color: var(--light-color);
+}
+.affix .review-color2:hover {
+    color: black;
+}
+
+
+
+.affix .contact-color {
+    color: var(--green);
+}
+.affix .contact-color:hover {
+    color: #b6771e;
+}
+
+.affix .contact-color2 {
+    color: var(--light-color);
+}
+.affix .contact-color2:hover {
+    color: black;
+}
+
 
 a {
     text-decoration: none;
@@ -235,11 +294,13 @@ header .image .logo img {
     width: 8rem;
     position: relative;
     bottom: 1px;
+    transition: 0.5s;
 }
 
 header .logo-text {
     position: relative;
     top: 3px;
+    transition: 0.5s;
 }
 
 header .navbar a {
@@ -247,6 +308,7 @@ header .navbar a {
     border-radius: .5rem;
     padding: .5rem 1.5rem;
     color: var(--light-color);
+    transition: 0.5s;
 }
 
 header .navbar a.active,
@@ -267,6 +329,7 @@ header .icons a {
     color: var(--black);
     border-radius: 50%;
     background: #eee;
+    transition: 0.5s;
 }
 
 header .icons i:hover,
@@ -298,6 +361,7 @@ header .icons #menu-bars {
     color: var(--green);
     padding: 13px 18px;
 }
+
 
 @keyframes affix {
     from {
@@ -485,7 +549,7 @@ form .half .item {
 
 form label {
     display: block;
-    font-size: 13px;
+    font-size: 13Spx;
     letter-spacing: 3.5px;
     margin-bottom: 16px;
 }
