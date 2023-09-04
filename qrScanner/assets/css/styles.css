@@ -1,0 +1,12 @@
+#reader {
+    width: 450px;
+}
+
+.qr-scanner {
+    height: 100%;
+    background-attachment: fixed;
+}
+
+#show {
+    display: none;
+}

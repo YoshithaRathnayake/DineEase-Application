@@ -38,6 +38,9 @@
     <link href="your-project-dir/icon-font/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
 
+      <!-- CSS-->
+  <link rel="stylesheet" type="text/CSS" href="assets/css/styles.css" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" alt="Favicon" />
 
@@ -46,11 +49,12 @@
 </head>
 
 <body>
-    <div style="text-align: center;">
-        <div id="reader" style="width: 500px;"></div>
-        <div id="show" style="display: none;">
+    <script src="assets/js/script.js"></script>
+    <div class="qr-scanner">
+        <div id="reader"></div>
+        <div id="show">
             <h4>Scanned Result</h4>
-            <p style="color: blue;" id="result"></p>
+            <p id="result"></p>
         </div>
     </div>
     <script>
@@ -66,7 +70,7 @@
         const config = { fps: 20, qrbox: { width: 250, height: 250 } }
         html5Qrcode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
     </script>
-    <script src="assets/script.js"></script>
+
 </body>
 
 </html>
