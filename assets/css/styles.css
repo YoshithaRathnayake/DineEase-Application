@@ -680,6 +680,8 @@ iframe {
 
     header .navbar.active {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        display: block;
+        text-align: center;
     }
 
     header .navbar a {
@@ -687,7 +689,11 @@ iframe {
         padding: 1.5rem;
         margin: 1rem;
         font-size: 2rem;
-        background: #eee;
+        background: #eeeeee57;
+    }
+
+    header .navbar a:hover {
+        background-color: rgb(222, 222, 222);
     }
 
     #search-form #search-box {
