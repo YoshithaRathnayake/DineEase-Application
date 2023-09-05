@@ -38,8 +38,8 @@
     <link href="your-project-dir/icon-font/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
 
-      <!-- CSS-->
-  <link rel="stylesheet" type="text/CSS" href="assets/css/styles.css" />
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/CSS" href="assets/css/styles.css" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" alt="Favicon" />
@@ -50,8 +50,17 @@
 
 <body>
     <script src="assets/js/script.js"></script>
-    <div class="qr-scanner">
-        <div id="reader"></div>
+    <div class="error-text text-center">
+        <h1>Sorry, this feature is not available for Desktop Devices!</h1>
+        <center>
+            <hr width="800px">
+        </center>
+        <h3>Please, scan with your Mobile Device.</h3>
+    </div>
+    <div class="qr-box">
+        <center>
+            <div id="reader"></div>
+        </center>
         <div id="show">
             <h4>Scanned Result</h4>
             <p id="result"></p>
@@ -67,7 +76,7 @@
                 html5Qrcode.stop();
             }
         }
-        const config = { fps: 20, qrbox: { width: 250, height: 250 } }
+        const config = { fps: 20, qrbox: { width: 280, height: 250 } }
         html5Qrcode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
     </script>
 
