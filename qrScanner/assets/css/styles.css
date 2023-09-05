@@ -306,6 +306,10 @@ header .icons #menu-bars {
     padding: 10px;
 }
 
+.mobile-nav i:active {
+    background-color: rgb(91, 91, 91);
+}
+
 .mobile-nav h2 {
     color: white;
     font-weight: 500;
