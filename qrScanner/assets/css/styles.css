@@ -1,7 +1,30 @@
 body {
-    overflow-y: hidden !important;
-    overflow-x: hidden !important;
     background-color: rgb(46, 46, 46);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root {
+    --green: #d98611;
+    --black: #192a56;
+    --light-color: #666;
+    --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-padding-top: 5.5rem;
 }
 
 #reader {
@@ -10,11 +33,15 @@ body {
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    top: 110px;
+    top: 70px;
 }
 
 #show {
     display: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 .error-text {
@@ -25,11 +52,238 @@ body {
 }
 
 .error-text h3 {
-    font-weight: 200;
+    font-size: 20px;
 }
 
 .error-text h1 {
     font-size: 35px;
+}
+
+header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 7%;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    transition: 0.5s;
+    height: 70px;
+    backdrop-filter: blur(20px);
+}
+
+header .image .logo {
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+header .image .logo img {
+    width: 8rem;
+    position: relative;
+    bottom: 1px;
+    transition: 0.5s;
+}
+
+header .logo-text {
+    position: relative;
+    top: 3px;
+    transition: 0.5s;
+}
+
+header .navbar a {
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color: var(--light-color);
+    transition: 0.5s;
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+    letter-spacing: 3px;
+    color: var(--green);
+}
+
+header .icons i,
+header .icons a {
+    cursor: pointer;
+    margin-left: .5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--black);
+    border-radius: 50%;
+    background: #eee;
+    transition: 0.5s;
+}
+
+header .icons i:hover,
+header .icons a:hover {
+    color: #fff;
+    background: var(--green);
+    transform: rotate(360deg);
+}
+
+header .icons #menu-bars {
+    display: none;
+}
+
+.affix {
+    background-color: rgba(245, 245, 245, 0.72);
+    backdrop-filter: blur(20px);
+    height: 80px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.224);
+    animation-name: affix;
+    animation-duration: 1s;
+    -webkit-animation-name: affix;
+    -webkit-animation-duration: 0.5s;
+}
+
+.affix .navbar a.active,
+.affix .navbar a:hover {
+    background-color: rgb(222, 222, 222);
+    letter-spacing: 0px;
+    color: var(--green);
+    padding: 13px 18px;
+}
+
+@keyframes affix {
+    from {
+        height: 70px;
+    }
+
+    to {
+        background-color: rgba(245, 245, 245, 0.72);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.224);
+        height: 80px;
+    }
+}
+
+@-webkit-keyframes affix {
+    from {
+        height: 70px;
+    }
+
+    to {
+        background-color: rgba(245, 245, 245, 0.72);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.224);
+        height: 80px;
+    }
+}
+
+.mobile-nav {
+    background-color: rgb(31, 31, 31);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.589);
+}
+
+.mobile-nav i {
+    font-size: 25px;
+    position: relative;
+    top: 15px;
+    left: 20px;
+    padding: 10px;
+}
+
+.mobile-nav i:hover {
+    background-color: rgb(70, 70, 70);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.mobile-nav h2 {
+    color: white;
+    font-weight: 500;
+    position: relative;
+    bottom: 23px;
+    left: 80px;
+    font-size: 25px;
+    width: 200px;
+}
+
+.back-home {
+    margin-top: 40px;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 12px 24px;
+    display: inline-block;
+    background-color: var(--green);
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.back-home:hover {
+    background-color: #ea9d32;
+    color: black;
+    transition: 1s;
+    box-shadow: 0 0 30px #eaa84b;
+}
+
+#footer {
+    position: relative;
+    top: 180px;
+}
+
+#backToTop {
+    display: inline-block;
+    background-color: #a3a3a37b;
+    backdrop-filter: blur(5px);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transition: 0.3s;
+    opacity: 0.5s;
+    visibility: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 4;
+    text-decoration: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#backToTop::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.5em;
+    line-height: 40px;
+    color: #8b8b8b;
+}
+
+#backToTop:hover {
+    cursor: pointer;
+    background-color: #c2c2c28e;
+}
+
+#backToTop:active {
+    background-color: rgb(174, 174, 174);
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media only screen and (max-width: 511px) {
+    #backToTop {
+        width: 40px;
+        height: 40px;
+        bottom: 8px;
+        right: 8px;
+    }
 }
 
 @media (min-width:991px) {
@@ -41,7 +295,54 @@ body {
     .qr-box {
         display: none;
     }
-.error-text {
-    display: block;
+
+    .error-text {
+        display: block;
+    }
+
+    header {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
 }
+
+@media (max-width:991px) {
+
+    header {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    #footer {
+        top: 80px;
+    }
+}
+
+@media (max-width:453px) {
+
+    .mobile-nav {
+        width: 450px;
+    }
+
+    #footer {
+        width: 450px;
+    }
+}
+
+@media (max-width:380px) {
+
+    .qr-box {
+        position: relative;
+        top: 20px;
+    }
+
+    #footer {
+        top: 100px;
+    }
 }
