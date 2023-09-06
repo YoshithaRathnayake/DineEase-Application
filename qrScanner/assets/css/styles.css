@@ -334,9 +334,10 @@ header .icons #menu-bars {
 }
 
 .back-home:hover {
+    font-weight: 500;
     background-color: #ea9d32;
     color: black;
-    transition: 1s;
+    transition: 0.5s;
     box-shadow: 0 0 30px #eaa84b;
 }
 
@@ -433,17 +434,13 @@ header .icons #menu-bars {
     }
 
     #footer {
-        top: 80px;
+        display: none;
     }
 }
 
 @media (max-width:453px) {
 
     .mobile-nav {
-        width: 450px;
-    }
-
-    #footer {
         width: 450px;
     }
 }
@@ -453,9 +450,5 @@ header .icons #menu-bars {
     .qr-box {
         position: relative;
         top: 20px;
-    }
-
-    #footer {
-        top: 100px;
     }
 }
