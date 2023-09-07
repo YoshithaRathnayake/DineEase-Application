@@ -804,3 +804,7 @@ iframe {
         right: 8px;
     }
 }
+
+.review-stars:hover {
+cursor: pointer;
+}
