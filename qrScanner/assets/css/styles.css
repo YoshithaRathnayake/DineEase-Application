@@ -136,6 +136,15 @@ html {
     scroll-padding-top: 5.5rem;
 }
 
+.social-media {
+    text-decoration: none;
+    color: white;
+}
+
+.social-media:hover {
+    color: rgb(209, 209, 209);
+}
+
 #reader {
     width: 450px;
     line-height: 1.5;

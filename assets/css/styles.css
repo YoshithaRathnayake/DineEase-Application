@@ -147,20 +147,9 @@ body {
     --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
 }
 
-* {
-    font-family: 'Nunito', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    outline: none;
-    border: none;
-    transition: all .2s linear;
-}
-
 html {
-    font-size: 62.5%;
-    scroll-padding-top: 5.5rem;
+    font-size: 65%;
+    scroll-padding-top: 65px;
 }
 
 section {
@@ -229,7 +218,6 @@ section:nth-child(even){
 .affix .contact-color2:hover {
     color: black;
 }
-
 
 a {
     text-decoration: none;
