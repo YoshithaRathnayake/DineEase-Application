@@ -1,18 +1,15 @@
-<!-- Code by Brave Coder - https://youtube.com/BraveCoder -->
-
 <?php
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 session_start();
 if (isset($_SESSION['SESSION_EMAIL'])) {
     header("Location: welcome.php");
     die();
 }
-
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require 'vendor/autoload.php';
@@ -21,54 +18,63 @@ include 'config.php';
 $msg = "";
 
 if (isset($_POST['submit'])) {
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, md5($_POST['password']));
+    $confirm_password = mysqli_real_escape_string($conn, md5($_POST['confirm-password']));
     $code = mysqli_real_escape_string($conn, md5(rand()));
 
     if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email='{$email}'")) > 0) {
-        $query = mysqli_query($conn, "UPDATE users SET code='{$code}' WHERE email='{$email}'");
-
-        if ($query) {
-            echo "<div style='display: none;'>";
-            //Create an instance; passing `true` enables exceptions
-            $mail = new PHPMailer(true);
-
-            try {
-                //Server settings
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Enable verbose debug output
-                $mail->isSMTP(); //Send using SMTP
-                $mail->Host = 'smtp.gmail.com'; //Set the SMTP server to send through
-                $mail->SMTPAuth = true; //Enable SMTP authentication
-                $mail->Username = 'dine.ease23@gmail.com'; //SMTP username
-                $mail->Password = "gewlcgaqyelntrdb"; //SMTP password
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Enable implicit TLS encryption
-                $mail->Port = 465; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-                //Recipients
-                $mail->setFrom('dine.ease23@gmail.com');
-                $mail->addAddress($email);
-
-                //Content
-                $mail->isHTML(true); //Set email format to HTML
-                $mail->Subject = 'no reply';
-                $mail->Body = 'Here is the verification link <b><a href="http://localhost/demo/DineEase-Application/registration/change-password.php?reset=' . $code . '">http://localhost/demo/DineEase-Application/registration/change-password.php?reset=' . $code . '</a></b>';
-
-                $mail->send();
-                echo 'Message has been sent';
-            } catch (Exception $e) {
-                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            }
-            echo "</div>";
-            $msg = "<div class='alert alert-info'>We've send a verification link on your email address.</div>";
-        }
+        $msg = "<div class='alert alert-danger'>{$email} - This email address has been already exists.</div>";
     } else {
-        $msg = "<div class='alert alert-danger'>$email - This email address do not found.</div>";
+        if ($password === $confirm_password) {
+            $sql = "INSERT INTO users (name, email, password, code) VALUES ('{$name}', '{$email}', '{$password}', '{$code}')";
+            $result = mysqli_query($conn, $sql);
+
+            if ($result) {
+                echo "<div style='display: none;'>";
+                //Create an instance; passing `true` enables exceptions
+                $mail = new PHPMailer(true);
+
+                try {
+                    //Server settings
+                    $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Enable verbose debug output
+                    $mail->isSMTP(); //Send using SMTP
+                    $mail->Host = 'smtp.gmail.com'; //Set the SMTP server to send through
+                    $mail->SMTPAuth = true; //Enable SMTP authentication
+                    $mail->Username = 'dine.ease23@gmail.com'; //SMTP username
+                    $mail->Password = "gewlcgaqyelntrdb"; //SMTP password
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Enable implicit TLS encryption
+                    $mail->Port = 465; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+                    //Recipients
+                    $mail->setFrom('dine.ease23@gmail.com');
+                    $mail->addAddress($email);
+
+                    //Content
+                    $mail->isHTML(true); //Set email format to HTML
+                    $mail->Subject = 'no reply';
+                    $mail->Body = 'Here is the verification link <b><a href="http://localhost/demo/DineEase-Application/registration/?verification=' . $code . '">http://localhost/demo/DineEase-Application/registration/?verification=' . $code . '</a></b>';
+
+                    $mail->send();
+                    echo 'Message has been sent';
+                } catch (Exception $e) {
+                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                }
+                echo "</div>";
+                $msg = "<div class='alert alert-info'>We've send a verification link on your email address.</div>";
+            } else {
+                $msg = "<div class='alert alert-danger'>Something wrong went.</div>";
+            }
+        } else {
+            $msg = "<div class='alert alert-danger'>Password and Confirm Password do not match</div>";
+        }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
 
 <head>
     <!-- Meta Tags -->
@@ -78,7 +84,7 @@ if (isset($_POST['submit'])) {
     <meta name='description'
         content='This is the Web Application of DineEase App. We are giving you a help to take food at anytime from a restaurant without telling them to a waiter.' />
     <meta name='author' content='DineEase' />
-    <meta name='keywords' content='Forgot Password' />
+    <meta name='keywords' content='Register' />
 
     <!-- Facebook OG Tags -->
     <meta property='og:title' content='DineEase' />
@@ -133,7 +139,7 @@ if (isset($_POST['submit'])) {
     <link rel='icon' type='image/png' href='../assets/img/favicon.png' alt='Favicon' />
 
     <!-- Title -->
-    <title>Forgot Password | DineEase</title>
+    <title>Register | DineEase</title>
 
     <!--/Style-CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -156,19 +162,30 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="w3l_form align-self">
                         <div class="left_grid_info">
-                            <img src="images/image3.svg" alt="">
+                            <img src="images/image2.svg" alt="">
                         </div>
                     </div>
                     <div class="content-wthree">
-                        <h2>Forgot Password</h2>
+                        <h2>Register Now</h2>
                         <p>DineEase | Browse Restaurants</p>
                         <?php echo $msg; ?>
                         <form action="" method="post">
-                            <input type="email" class="email" name="email" placeholder="Enter Your Email" required>
-                            <button name="submit" class="btn" type="submit">Send Reset Link</button>
+                            <input type="text" class="name" name="name" placeholder="Enter Your Name"
+                                value="<?php if (isset($_POST['submit'])) {
+                                    echo $name;
+                                } ?>" required>
+                            <input type="email" class="email" name="email" placeholder="Enter Your Email"
+                                value="<?php if (isset($_POST['submit'])) {
+                                    echo $email;
+                                } ?>" required>
+                            <input type="password" class="password" name="password" placeholder="Enter Your Password"
+                                required>
+                            <input type="password" class="confirm-password" name="confirm-password"
+                                placeholder="Confirm Your Password" required>
+                            <button name="submit" class="btn" type="submit">Register</button>
                         </form>
                         <div class="social-icons">
-                            <p>Back to! <a href="index.php">Login</a>.</p>
+                            <p>Have an account! <a href="index.php">Login</a>.</p>
                         </div>
                     </div>
                 </div>
